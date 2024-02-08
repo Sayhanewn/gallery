@@ -1,9 +1,12 @@
+'use client';
+
 import Button from '../atoms/button';
 import LText from '../atoms/ltext';
-import MText from '../atoms/mtext';
-import Link from 'next/link'; 
+import Link from 'next/link';
 
 export default function Navbar() {
+	// const user = localStorage.getItem('user');
+
 	return (
 		<nav className='w-full bg-blue-100 py-2 absolute top-0'>
 			<div className='container mx-auto flex justify-between items-center'>
@@ -13,15 +16,20 @@ export default function Navbar() {
 						<span className='-m-2 text-blue-500'>G</span>
 					</div>
 					<div>
-					<LText className=''>NextGallery</LText>
-					<p className='text-[12px]'>Lead Luxarious Life.</p>
+						<LText className=''>NextGallery</LText>
+						<p className='text-[12px]'>Lead Luxarious Life.</p>
 					</div>
 				</Link>
 				<ul className='flex gap-5 text-lg font-semibold'>
 					<li>Blog</li>
 					<li>contact</li>
+					<li>
+						<Link href='/dashboard' className={!user && 'hidden'}>
+							Dashboard
+						</Link>
+					</li>
 				</ul>
-				<div className='flex gap-5'>
+				<div className='flex gap-5 items-center'>
 					<Link href='/signup'>
 						<Button>SignUp</Button>
 					</Link>

@@ -1,14 +1,13 @@
 import React from 'react';
-import { SText } from './stext';
+import GoBackButton from './backbutton';
 
-const Input = ({
+const EamilInput = ({
 	id = '',
 	name = '',
 	placeholder = '',
 	title = '',
+	value = '',
 	type = 'text',
-	error = '',
-	...props
 }) => {
 	return (
 		<div className='my-5 relative'>
@@ -21,11 +20,10 @@ const Input = ({
 				id={id}
 				placeholder={placeholder}
 				className='px-3 py-2 border sm:min-w-[400px]'
-				{...props}
+				value={value}
 			/>
-			{error.length > 0 && <SText className='text-red-500 pt-1'>{error}</SText>}
 		</div>
 	);
 };
 
-export default Input;
+export default EamilInput;
